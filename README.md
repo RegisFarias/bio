@@ -1,5 +1,3 @@
-# bio
-Bio
 # - Régis Farias -
 
 Especialista Estrutural
