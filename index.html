@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta property="og:title" content="Régis Farias - Engenheiro Estrutural">
-  <meta property="og:description" content="Projetos estruturais e consultoria técnica, unindo experiência e tecnologia.">
-  <meta property="og:image" content="https://regisfarias.github.io/bio/static/images/preview.jpg">
-  <meta property="og:url" content="https://regisfarias.github.io/bio/">
-  <meta property="og:type" content="website">
   <title>Régis Farias - Engenheiro</title>
-  <link rel="icon" href="static/images/engineer.png" type="image/png">
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" href="/static/images/engineer.png" type="image/png">
+  <link rel="stylesheet" href="/static/style.css">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -33,7 +28,7 @@
     <!-- HOME -->
     <section class="screen active" id="home">
       <video class="home-video" autoplay muted loop playsinline preload="auto">
-        <source src="static/videos/Background.mp4" type="video/mp4">
+        <source src="/static/videos/Background.mp4" type="video/mp4">
       </video>
       <div class="home-wrapper">
         <div class="content">
@@ -46,12 +41,12 @@
     <!-- SOBRE (com novas seções) -->
     <section class="screen" id="about">
       <video class="home-video" autoplay muted loop playsinline preload="auto">
-        <source src="static/videos/Structure.mp4" type="video/mp4">
+        <source src="/static/videos/Structure.mp4" type="video/mp4">
       </video>
       <div class="content">
         <div class="about-container">
           <div class="profile-image scroll-reveal">
-            <img src="static/images/FrontRegis.jpeg" alt="Régis Farias">
+            <img src="/static/images/FrontRegis.jpeg" alt="Régis Farias">
           </div>
           <div class="about-text scroll-reveal">
             <h2>Régis Farias</h2>
@@ -185,6 +180,17 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="screen" id="services">
+      <video class="home-video" autoplay muted loop playsinline preload="auto">
+        <source src="/static/videos/Setup.mp4" type="video/mp4">
+      </video>
+      <div class="content">
+        <div class="services-content">
+
+        <!-- NOVO CONTEÚDO ADICIONADO NO INÍCIO DA SEÇÃO SERVICES -->
         <div class="about-extra scroll-reveal">
           <h2>Metodologia</h2>
 
@@ -200,16 +206,6 @@
             O objetivo é sempre entregar um projeto que una segurança, economia e desempenho estrutural.
           </p>
         </div>
-        <div class="media-section scroll-reveal">
-          <h2>Projetos em Destaque</h2>
-
-          <div class="media-grid">
-            <img src="static/images/p3-4.webp">
-            <img src="static/images/p4-3.webp">
-            <img src="static/images/p2-5.webp">
-            <img src="static/images/p1-3.webp">
-          </div>
-        </div>
         <div class="insight-section scroll-reveal">
           <div class="insight-text">
             <h2>Fundações Rasas ou Profundas?</h2>
@@ -223,124 +219,84 @@
               Para determinar a melhor solução, é essencial considerar fatores como as características do solo, 
               as cargas atuantes e as condições do local da obra.
             </p>
+
+            <!-- VANTAGENS DAS FUNDAÇÕES RASAS -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0;">
+              <h3 style="color: var(--accent); margin-bottom: 1rem;">Vantagens das Fundações Rasas</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Menor custo e execução mais rápida.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Menos movimentação de terra.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Adequadas para construções leves e solos firmes.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- VANTAGENS DAS FUNDAÇÕES PROFUNDAS -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0;">
+              <h3 style="color: var(--accent); margin-bottom: 1rem;">Vantagens das Fundações Profundas</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Suportam cargas elevadas.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Aplicáveis a solos de baixa resistência.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="check-circle" style="width: 20px; color: #4ade80;"></i>
+                  <span>Reduzem os riscos de recalques diferenciais.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- COMO ESCOLHER A MELHOR OPÇÃO -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0;">
+              <h3 style="color: var(--accent); margin-bottom: 1rem;">Como Escolher a Melhor Opção?</h3>
+              <p style="margin-bottom: 1rem;">A escolha entre fundações rasas e profundas depende de:</p>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="database" style="width: 40px; color: var(--accent);"></i>
+                  <span><strong>Capacidade do solo</strong> – Testes geotécnicos determinam a resistência e as camadas do solo.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="building" style="width: 40px; color: var(--accent);"></i>
+                  <span><strong>Cargas da edificação</strong> – Construções mais pesadas exigem fundações profundas.</span>
+                </li>
+                <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="currency" style="width: 40px; color: var(--accent);"></i>
+                  <span><strong>Orçamento e prazo</strong> – Fundações rasas são mais econômicas e rápidas, enquanto as profundas garantem maior segurança estrutural.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- CONCLUSÃO -->
+            <div style="background: rgba(0,100,200,0.1); border-left: 4px solid var(--accent); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0;">
+              <p style="margin-bottom: 0.75rem;">
+                A definição correta da fundação é essencial para garantir a estabilidade e segurança da construção. 
+                A análise do solo e o cálculo estrutural são fundamentais para escolher a melhor solução, equilibrando custo e desempenho.
+              </p>
+              <p style="margin-bottom: 0; font-weight: 500;">
+                Para um projeto eficiente, consulte sempre um engenheiro especializado.
+              </p>
+            </div>
           </div>
 
           <div class="insight-image">
             <img src="static/images/fundacao.jpeg" alt="Exemplo de fundação estrutural">
           </div>
         </div>
-        <div class="projects-list scroll-reveal">
+        <!-- FIM DO CONTEÚDO ADICIONADO -->
 
-          <h2>PROJETO ESTRUTURAL</h2>
-          <div class="project-images">
-            <img src="static/images/p1-1.webp">
-            <img src="static/images/p1-2.webp">
-            <img src="static/images/p1-3.webp">
-            <img src="static/images/p1-4.webp">
-            <img src="static/images/p1-5.webp">
-            <img src="static/images/p1-6.webp">
-            <img src="static/images/p1-7.webp">
-          </div>
-
-          <h2>PROJETO ESTRUTURAL</h2>
-          <div class="project-images">
-            <img src="static/images/p2-1.webp">
-            <img src="static/images/p2-2.webp">
-            <img src="static/images/p2-3.webp">
-            <img src="static/images/p2-4.webp">
-            <img src="static/images/p2-5.webp">
-            <img src="static/images/p2-6.webp">
-          </div>
-
-          <h2>PROJETO RESIDENCIAL UNIFAMILIAR: Nova Iguaçu Rio de Janeiro</h2>
-          <div class="project-images">
-            <img src="static/images/p3-1.webp">
-            <img src="static/images/p3-2.webp">
-            <img src="static/images/p3-3.webp">
-            <img src="static/images/p3-4.webp">
-          </div>
-
-          <h2>PROJETO RECENTE: Residência unifamiliar em Mangaratiba praia do saco</h2>
-          <div class="project-images">
-            <img src="static/images/p4-1.webp">
-            <img src="static/images/p4-2.webp">
-            <img src="static/images/p4-3.webp">
-            <img src="static/images/p4-4.webp">
-          </div>
-
-        </div>
-
-      </div>
-        <!-- NOVAS SEÇÕES -->
-        <!-- 
-        <div class="education scroll-reveal">
-          <h2>Formação</h2>
-          <div class="education-grid">
-            <div class="edu-item">
-              <h3>Engenharia Civil</h3>
-              <p>Universidade Federal do Rio de Janeiro (UFRJ) | 2010–2015</p>
-              <span class="edu-year">Graduação</span>
-            </div>
-            <div class="edu-item">
-              <h3>MBA em Gestão de Projetos</h3>
-              <p>FGV | 2017–2018</p>
-              <span class="edu-year">Pós-graduação</span>
-            </div>
-            <div class="edu-item">
-              <h3>Especialização em BIM</h3>
-              <p>Instituto SENAI | 2020–2021</p>
-              <span class="edu-year">Certificação</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills scroll-reveal">
-          <h2>Competências</h2>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <span>AutoCAD / Revit</span>
-              <div class="skill-bar"><div style="width: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Análise Estrutural (SAP2000, TQS)</span>
-              <div class="skill-bar"><div style="width: 85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Gestão de Projetos (SCRUM, PMBOK)</span>
-              <div class="skill-bar"><div style="width: 80%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Python / Automação de Processos</span>
-              <div class="skill-bar"><div style="width: 75%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonials scroll-reveal">
-          <h2>Depoimentos</h2>
-          <div class="testimonials-grid">
-            <div class="testimonial-card">
-              <p>"O Régis demonstrou um profissionalismo exemplar no projeto da ponte. Sua expertise técnica foi fundamental para o sucesso da obra."</p>
-              <h4>— Carlos Andrade, Diretor de Obras</h4>
-            </div>
-            <div class="testimonial-card">
-              <p>"A comunicação clara e a pontualidade na entrega dos projetos me fizeram confiar nele para mais de três obras residenciais."</p>
-              <h4>— Mariana Lima, Cliente</h4>
-            </div>
-          </div>
-        </div>
-      -->
-      </div>
-    </section>
-
-    <section class="screen" id="services">
-      <video class="home-video" autoplay muted loop playsinline preload="auto">
-        <source src="static/videos/Setup.mp4" type="video/mp4">
-      </video>
-      <div class="content">
-        <div class="services-content">
-
-        <h2 class="scroll-reveal">A IMPORTÂNCIA DOS SERVIÇOS</h2>
+        <h2 class="scroll-reveal" style="margin-top: 3rem;">A IMPORTÂNCIA DOS SERVIÇOS</h2>
 
         <div class="service-block scroll-reveal">
           <h3>Desenhos Estruturais</h3>
@@ -403,30 +359,82 @@
         <div class="portfolio-grid">
           <div class="project scroll-reveal">
             <div class="project-image">
-              <model-viewer src="static/models/exemplo3.glb" alt="Modelo 3D Projeto Civil 1" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
+              <model-viewer src="/static/models/exemplo3.glb" alt="Modelo 3D Projeto Civil 1" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
             </div>
             <div class="project-description"><h3>Projeto Civil 1</h3><p>Modelo estrutural interativo: clique e arraste para explorar.</p></div>
           </div>
           <div class="project scroll-reveal">
             <div class="project-image">
-              <model-viewer src="static/models/exemplo1.glb" alt="Modelo 3D Projeto Civil 2" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
+              <model-viewer src="/static/models/exemplo1.glb" alt="Modelo 3D Projeto Civil 2" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
             </div>
             <div class="project-description"><h3>Projeto Civil 2</h3><p>Visualização completa do projeto, giro livre e zoom.</p></div>
           </div>
           <div class="project scroll-reveal">
             <div class="project-image">
-              <model-viewer src="static/models/exemplo2.glb" alt="Modelo 3D Projeto Civil 3" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
+              <model-viewer src="/static/models/exemplo2.glb" alt="Modelo 3D Projeto Civil 3" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="auto"></model-viewer>
             </div>
             <div class="project-description"><h3>Projeto Civil 3</h3><p>Interaja com o modelo: toque ou clique e movimente.</p></div>
           </div>
         </div>
+
+        <!-- PROJETOS MOVIDOS PARA A SEÇÃO PORTFOLIO (DEPOIS DOS MODELOS 3D) -->
+        <div class="projects-list scroll-reveal" style="margin-top: 4rem;">
+
+          <h2>PROJETO ESTRUTURAL</h2>
+          <div class="project-images">
+            <img src="/static/images/p1-1.webp">
+            <img src="/static/images/p1-2.webp">
+            <img src="/static/images/p1-3.webp">
+            <img src="/static/images/p1-4.webp">
+            <img src="/static/images/p1-5.webp">
+            <img src="/static/images/p1-6.webp">
+            <img src="/static/images/p1-7.webp">
+          </div>
+
+          <h2>PROJETO ESTRUTURAL</h2>
+          <div class="project-images">
+            <img src="/static/images/p2-1.webp">
+            <img src="/static/images/p2-2.webp">
+            <img src="/static/images/p2-3.webp">
+            <img src="/static/images/p2-4.webp">
+            <img src="/static/images/p2-5.webp">
+            <img src="/static/images/p2-6.webp">
+          </div>
+
+          <h2>PROJETO RESIDENCIAL UNIFAMILIAR: Nova Iguaçu Rio de Janeiro</h2>
+          <div class="project-images">
+            <img src="/static/images/p3-1.webp">
+            <img src="/static/images/p3-2.webp">
+            <img src="/static/images/p3-3.webp">
+            <img src="/static/images/p3-4.webp">
+          </div>
+
+          <h2>PROJETO RECENTE: Residência unifamiliar em Mangaratiba praia do saco</h2>
+        <div class="project-images">
+          <img src="/static/images/p4-1.webp">
+          <img src="/static/images/p4-2.webp">
+          <img src="/static/images/p4-3.webp">
+          <img src="/static/images/p4-4.webp">
+        </div>
+        <div class="media-section scroll-reveal">
+          <h2>Projetos em Destaque</h2>
+
+          <div class="media-grid">
+            <img src="/static/images/p3-4.webp">
+            <img src="/static/images/p4-3.webp">
+            <img src="/static/images/p2-5.webp">
+            <img src="/static/images/p1-3.webp">
+          </div>
+        </div>
+        </div>
+        <!-- FIM DOS PROJETOS MOVIDOS -->
       </div>
     </section>
 
     <!-- CONTATO -->
     <section class="screen" id="contact">
       <video class="home-video" autoplay muted loop playsinline preload="auto">
-        <source src="static/videos/Build.mp4" type="video/mp4">
+        <source src="/static/videos/Build.mp4" type="video/mp4">
       </video>
       <div class="content">
         <h2 class="scroll-reveal">Contato</h2>
@@ -449,7 +457,7 @@
 
   <button id="back-to-top" title="Voltar ao topo">↑</button>
 
-  <script src="static/script.js"></script>
+  <script src="/static/script.js"></script>
   <script>lucide.createIcons();</script>
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
