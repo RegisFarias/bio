@@ -117,9 +117,7 @@ p{color:#ccc;margin-bottom:1rem;line-height:1.6}
 .service-list li::before{content:"•";position:absolute;left:0;color:#fff}
 #services .content{position:relative;z-index:1}
 
-/* --- ALTERAÇÕES PARA MOBILE AQUI --- */
 @media (max-width:768px){
-  /* Aumentando textos gerais */
   p, span, li, .timeline-content p, .edu-item p {font-size: 1.1rem !important;}
   h2 {font-size: 2.2rem !important;}
   h3 {font-size: 1.5rem !important;}
@@ -127,17 +125,17 @@ p{color:#ccc;margin-bottom:1rem;line-height:1.6}
   
   header{flex-direction:column;padding:.8rem 1rem;gap:8px}
   nav{justify-content:center;gap:.8rem}
-  nav a{font-size:1.1rem} /* Links de navegação maiores */
+  nav a{font-size:1.1rem}
   .screen{padding-top:12rem;padding-left:1.2rem;padding-right:1.2rem;align-items:flex-start}
   #home.screen{align-items:center;padding-top:0}
   .about-text{text-align:center}
-  .about-text p{text-align:justify; font-size: 1.15rem;} /* Texto sobre mim maior */
+  .about-text p{text-align:justify; font-size: 1.15rem;}
   .about-extra{width:100%;max-width:800px;margin:3rem auto 0;background:#0a0a0acc;padding:1.8rem;border-radius:10px;backdrop-filter:blur(8px);border:1px solid #ffffff;text-align:left}
   .about-extra h2{text-align:center;margin-bottom:1.5rem}
   .about-extra p{line-height:1.7;margin-bottom:1rem;color:#ccc}
   .social-links{gap:1.2rem}
   .stats{gap:1rem;padding:1.2rem}
-  .stat-number{font-size:2.2rem} /* Números das estatísticas maiores */
+  .stat-number{font-size:2.2rem}
   .portfolio-grid{gap:1.2rem}
   .timeline::before{left:16px}
   .timeline-dot{left:9px;width:12px;height:12px}
