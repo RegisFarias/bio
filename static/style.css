@@ -26,7 +26,7 @@ p{color:#ccc;margin-bottom:1rem;line-height:1.6}
 .about-extra h2{text-align:center;margin-bottom:1.5rem}
 .about-extra p{line-height:1.7;margin-bottom:1rem;color:#ccc}
 .info-footer span:not(:last-child)::after{content:"•";margin-left:1.2rem;color:#777}
-.home-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;filter:brightness(.10);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%)}
+.home-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;filter:brightness(.5);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 85%,transparent 100%)}
 #home.screen{background:transparent;padding:0;justify-content:center;align-items:center}
 .services{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;width:100%;margin-top:1rem}
 .service-card{background:#252525cc;backdrop-filter:blur(4px);padding:2rem;flex:1 1 250px;border-radius:16px;transition:transform .3s,background .3s;border:1px solid #000000}
