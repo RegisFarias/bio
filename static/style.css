@@ -655,3 +655,204 @@ p {
   .contact .btn { min-width: unset; width: 100%; }
   .info-footer { flex-direction: column; align-items: center; gap: 0.5rem; }
 }
+
+/* ==================== EXTRA PARA TELAS MUITO PEQUENAS (≤480px) ==================== */
+@media (max-width: 480px) {
+  /* Aumenta fonte base */
+  body {
+    font-size: 18px; /* textos principais ficam maiores */
+  }
+
+  /* Header: reduz padding e permite quebra de linha suave */
+  header {
+    padding: 0.6rem 0.8rem;
+    flex-direction: column;
+    gap: 6px;
+  }
+  header h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  nav {
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 6px 8px; /* área de toque maior */
+    white-space: nowrap;
+  }
+
+  /* Seções: menos padding vertical */
+  .section {
+    padding: 4rem 0.8rem 2rem;
+  }
+
+  /* Títulos */
+  h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  /* Home: texto menor e com bom contraste */
+  #home .content h2 {
+    font-size: 1.6rem;
+  }
+  #home .content p {
+    font-size: 1rem;
+  }
+
+  /* Sobre: imagem e texto empilhados */
+  .about-container {
+    gap: 1rem;
+  }
+  .profile-image {
+    flex-basis: 160px;
+  }
+  .about-text {
+    padding: 1rem;
+    text-align: center;
+  }
+  .social-links {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .social-links a {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Estatísticas: empilhar e reduzir padding */
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Skills, experiência, about-extra */
+  .skills, .about-extra, .experience {
+    max-width: 100%;
+    padding: 1.2rem;
+    margin: 2rem auto 0;
+  }
+  .skill-item span {
+    font-size: 0.9rem;
+  }
+
+  /* Timeline (experiência) */
+  .timeline::before {
+    left: 16px;
+  }
+  .timeline-dot {
+    left: 9px;
+    width: 14px;
+    height: 14px;
+  }
+  .timeline-content {
+    margin-left: 40px;
+    padding: 0.8rem;
+  }
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Cards de serviços */
+  .services {
+    gap: 1rem;
+  }
+  .service-card {
+    padding: 1.2rem;
+    flex-basis: 100%;
+  }
+  .service-card i {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Seção de insight (fundações) */
+  .insight-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .insight-text ul li {
+    font-size: 0.9rem;
+  }
+  .insight-text div {
+    padding: 1rem;
+  }
+
+  /* Blocos de serviço */
+  .service-block {
+    padding: 1rem;
+  }
+
+  /* Portfolio grid: 1 coluna */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .project-image {
+    height: 200px;
+  }
+
+  /* Lista de imagens dos projetos */
+  .project-images {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .project-images img {
+    height: 180px;
+  }
+
+  /* Formulário de contato */
+  .contact form {
+    width: 100%;
+    gap: 1rem;
+  }
+  .contact input, .contact textarea {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .contact .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  /* Rodapé info */
+  .info-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Botão back to top */
+  #back-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.4rem;
+  }
+
+  /* Ajuste do efeito de digitação (evita quebra de linha indesejada) */
+  #typing-title {
+    font-size: 1rem;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 90vw;
+  }
+
+  /* Remove vídeos de fundo em telas muito pequenas para performance (opcional) */
+  .section-video {
+    display: none;
+  }
+  /* Fallback: cor sólida no lugar do vídeo */
+  .section {
+    background: #1c1c1c;
+  }
+}
