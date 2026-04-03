@@ -16,7 +16,7 @@ a {
   color: inherit;
 }
 
-/* Progress bar (opcional, baseada no scroll) */
+/* Progress bar */
 .progress-bar {
   position: fixed;
   top: 0;
@@ -38,7 +38,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
 
@@ -81,7 +81,6 @@ nav a:hover {
   background: #1c1c1c;
 }
 
-/* Blur embaixo */
 .section::after {
   content: '';
   position: absolute;
@@ -89,18 +88,11 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(28, 28, 28, 0) 0%,
-    #1c1c1c 100%
-  );
-
+  background: linear-gradient(to bottom, rgba(28, 28, 28, 0) 0%, #1c1c1c 100%);
   z-index: 1;
   pointer-events: none;
 }
 
-/* Blur em cima */
 .section::before {
   content: '';
   position: absolute;
@@ -108,13 +100,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 200px;
-
-  background: linear-gradient(
-    to top,
-    rgba(28, 28, 28, 0) 0%,
-    #1c1c1c 100%
-  );
-
+  background: linear-gradient(to top, rgba(28, 28, 28, 0) 0%, #1c1c1c 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -247,11 +233,11 @@ p {
 
 .profile-image {
   flex: 0 0 250px;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .profile-image img {
@@ -264,7 +250,7 @@ p {
   flex: 2;
   min-width: 260px;
   text-align: left;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   padding: 1.5rem;
   border-radius: 5px;
   backdrop-filter: blur(10px);
@@ -436,7 +422,7 @@ p {
 
 .project:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
 .project-image {
@@ -460,7 +446,8 @@ p {
   width: 350px;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
   padding: 1.2rem;
   border-radius: 12px;
   border: 1px solid #444;
@@ -471,7 +458,6 @@ p {
   transition: border 0.2s;
 }
 
-/* Efeito pulse no botão enviar */
 .contact .btn {
   animation: pulse 2s infinite;
   transition: all 0.3s;
@@ -523,7 +509,8 @@ p {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
-  transition: opacity 0.6s cubic-bezier(0.34, 1.2, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.2, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
 .scroll-reveal.revealed {
@@ -554,10 +541,10 @@ p {
   width: 100%;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-.projects-list h2{
+.projects-list h2 {
   width: 100%;
   margin-top: 3rem;
   text-shadow: 0px 2px 4px black;
@@ -588,7 +575,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,14 +606,13 @@ p {
 }
 
 .service-block {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 1.5rem;
   border: 1px solid #ffffff;
 }
 
-/* Efeito de digitação */
 #typing-title {
   display: inline-block;
   font-size: 1.25rem;
@@ -639,31 +625,54 @@ p {
 }
 
 @keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #fff; }
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  p, span, li, .timeline-content p { font-size: 1.1rem; }
-  h2 { font-size: 2rem; }
-  header { flex-direction: column; padding: 0.8rem 1rem; gap: 8px; }
-  nav a { font-size: 1.1rem; }
-  .section { padding: 5rem 1.2rem 2rem; }
-  .about-text { text-align: center; }
-  .contact form { width: 100%; }
-  .contact .btn { min-width: unset; width: 100%; }
-  .info-footer { flex-direction: column; align-items: center; gap: 0.5rem; }
+  p, span, li, .timeline-content p {
+    font-size: 1.1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  header {
+    flex-direction: column;
+    padding: 0.8rem 1rem;
+    gap: 8px;
+  }
+  nav a {
+    font-size: 1.1rem;
+  }
+  .section {
+    padding: 5rem 1.2rem 2rem;
+  }
+  .about-text {
+    text-align: center;
+  }
+  .contact form {
+    width: 100%;
+  }
+  .contact .btn {
+    min-width: unset;
+    width: 100%;
+  }
+  .info-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 
-/* ==================== EXTRA PARA TELAS MUITO PEQUENAS (≤480px) ==================== */
 @media (max-width: 480px) {
-  /* Aumenta fonte base */
   body {
-    font-size: 18px; /* textos principais ficam maiores */
+    font-size: 18px;
   }
-
-  /* Header: reduz padding e permite quebra de linha suave */
   header {
     padding: 0.6rem 0.8rem;
     flex-direction: column;
@@ -680,30 +689,22 @@ p {
   }
   nav a {
     font-size: 0.9rem;
-    padding: 6px 8px; /* área de toque maior */
+    padding: 6px 8px;
     white-space: nowrap;
   }
-
-  /* Seções: menos padding vertical */
   .section {
     padding: 4rem 0.8rem 2rem;
   }
-
-  /* Títulos */
   h2 {
     font-size: 1.8rem;
     line-height: 1.2;
   }
-
-  /* Home: texto menor e com bom contraste */
   #home .content h2 {
     font-size: 1.6rem;
   }
   #home .content p {
     font-size: 1rem;
   }
-
-  /* Sobre: imagem e texto empilhados */
   .about-container {
     gap: 1rem;
   }
@@ -722,8 +723,6 @@ p {
     width: 44px;
     height: 44px;
   }
-
-  /* Estatísticas: empilhar e reduzir padding */
   .stats {
     flex-direction: column;
     gap: 1rem;
@@ -732,8 +731,6 @@ p {
   .stat-number {
     font-size: 2rem;
   }
-
-  /* Skills, experiência, about-extra */
   .skills, .about-extra, .experience {
     max-width: 100%;
     padding: 1.2rem;
@@ -742,8 +739,6 @@ p {
   .skill-item span {
     font-size: 0.9rem;
   }
-
-  /* Timeline (experiência) */
   .timeline::before {
     left: 16px;
   }
@@ -759,8 +754,6 @@ p {
   .timeline-content h3 {
     font-size: 1.2rem;
   }
-
-  /* Cards de serviços */
   .services {
     gap: 1rem;
   }
@@ -772,8 +765,6 @@ p {
     width: 32px;
     height: 32px;
   }
-
-  /* Seção de insight (fundações) */
   .insight-section {
     flex-direction: column;
     gap: 1.5rem;
@@ -784,13 +775,9 @@ p {
   .insight-text div {
     padding: 1rem;
   }
-
-  /* Blocos de serviço */
   .service-block {
     padding: 1rem;
   }
-
-  /* Portfolio grid: 1 coluna */
   .portfolio-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -798,8 +785,6 @@ p {
   .project-image {
     height: 200px;
   }
-
-  /* Lista de imagens dos projetos */
   .project-images {
     grid-template-columns: 1fr;
     gap: 0.8rem;
@@ -807,8 +792,6 @@ p {
   .project-images img {
     height: 180px;
   }
-
-  /* Formulário de contato */
   .contact form {
     width: 100%;
     gap: 1rem;
@@ -822,15 +805,11 @@ p {
     padding: 1rem;
     font-size: 1.1rem;
   }
-
-  /* Rodapé info */
   .info-footer {
     flex-direction: column;
     gap: 0.5rem;
     font-size: 0.85rem;
   }
-
-  /* Botão back to top */
   #back-to-top {
     width: 44px;
     height: 44px;
@@ -838,20 +817,15 @@ p {
     right: 1rem;
     font-size: 1.4rem;
   }
-
-  /* Ajuste do efeito de digitação (evita quebra de linha indesejada) */
   #typing-title {
     font-size: 1rem;
     white-space: normal;
     word-break: break-word;
     max-width: 90vw;
   }
-
-  /* Remove vídeos de fundo em telas muito pequenas para performance (opcional) */
   .section-video {
     display: none;
   }
-  /* Fallback: cor sólida no lugar do vídeo */
   .section {
     background: #1c1c1c;
   }
