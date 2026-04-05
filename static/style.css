@@ -413,6 +413,7 @@ p {
 }
 
 .project {
+  cursor: not-allowed;
   background: #1e1e1e;
   border-radius: 16px;
   overflow: hidden;
