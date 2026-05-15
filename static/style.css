@@ -1,3 +1,6 @@
+/* ============================================================
+   RESET GLOBAL - Remove margens e paddings padrão dos navegadores
+   ============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +8,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ============================================================
+   ESTILOS BASE DO CORPO
+   ============================================================ */
 body {
-  background: #121212;
+  background: #1a0000;
   color: #e0e0e0;
   scroll-behavior: smooth;
 }
@@ -16,21 +22,26 @@ a {
   color: inherit;
 }
 
-/* Progress bar */
+/* ============================================================
+   BARRA DE PROGRESSO DE ROLAGEM (fixa no topo)
+   ============================================================ */
 .progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
-  background: #fff;
+  background: #ff0000;
   width: 0%;
   z-index: 200;
   transition: width 0.2s;
+  box-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000;
 }
 
-/* Header fixo */
+/* ============================================================
+   HEADER FIXO
+   ============================================================ */
 header {
-  background: #1c1c1c;
+  background: #1a0000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -38,16 +49,20 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.25), 0 4px 12px rgba(255, 0, 0, 0.3);
+  background: rgba(26,0,0,0.9);
 }
 
 header h1 {
-  color: #fff;
+  color: #ff0000;
   font-size: 1.5rem;
   letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
+/* ============================================================
+   NAVEGAÇÃO PRINCIPAL
+   ============================================================ */
 nav {
   display: flex;
   align-items: center;
@@ -57,7 +72,7 @@ nav {
 
 nav a {
   font-weight: 500;
-  transition: color 0.3s, border-bottom 0.3s;
+  transition: color 0.3s, border-bottom 0.3s, text-shadow 0.3s;
   cursor: pointer;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
@@ -65,10 +80,14 @@ nav a {
 }
 
 nav a:hover {
-  color: #ccc;
+  color: #ff4444;
+  border-bottom-color: #ff0000;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
-/* Seções comuns */
+/* ============================================================
+   SEÇÕES COMUNS
+   ============================================================ */
 .section {
   position: relative;
   min-height: 100vh;
@@ -78,7 +97,7 @@ nav a:hover {
   align-items: center;
   padding: 6rem 2rem 4rem;
   overflow-x: hidden;
-  background: #1c1c1c;
+  background: #1a0000;
 }
 
 .section::after {
@@ -88,7 +107,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to bottom, rgba(28, 28, 28, 0) 0%, #1c1c1c 100%);
+  background: linear-gradient(to bottom, rgba(26, 0, 0, 0) 0%, #1a0000 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -100,7 +119,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 200px;
-  background: linear-gradient(to top, rgba(28, 28, 28, 0) 0%, #1c1c1c 100%);
+  background: linear-gradient(to top, rgba(26, 0, 0, 0) 0%, #1a0000 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -114,7 +133,7 @@ nav a:hover {
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
-  filter: brightness(0.25);
+  filter: brightness(0.30);
 }
 
 .content {
@@ -130,13 +149,16 @@ nav a:hover {
   z-index: 2;
 }
 
+/* ============================================================
+   TÍTULOS PRINCIPAIS (h2)
+   ============================================================ */
 h2 {
   margin-bottom: 1.5rem;
   font-size: 2.2rem;
   font-weight: 300;
   letter-spacing: 2px;
-  color: #fff;
-  text-shadow: 0px 2px 4px black;
+  color: #ffffff;
+  text-shadow: 0px 2px 4px black, 0 0 5px rgba(255, 0, 0, 0.15);
 }
 
 p {
@@ -146,24 +168,32 @@ p {
   font-size: 1.11rem;
 }
 
+/* ============================================================
+   BOTÕES PADRÃO
+   ============================================================ */
 .btn {
-  background: #333;
+  background: #cc0000;
   color: #fff;
   padding: 0.75rem 1.8rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
   display: inline-block;
   font-size: 1rem;
   margin-top: 1rem;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.1);
 }
 
 .btn:hover {
-  background: #555;
+  background: #ff0000;
   transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2), 0 0 30px rgba(255, 0, 0, 0.1);
 }
 
+/* ============================================================
+   RODAPÉ COM INFORMAÇÕES DE CONTATO
+   ============================================================ */
 .info-footer {
   margin-top: 3rem;
   display: flex;
@@ -175,11 +205,43 @@ p {
   justify-content: center;
 }
 
-/* Home specific */
+/* ============================================================
+   SEÇÃO HOME
+   ============================================================ */
 #home {
-  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Força um debaixo do outro */
+  align-items: center;
   justify-content: center;
-  text-align: center;
+  padding: 100px 20px; /* Aumentado para dar respiro no PC */
+  gap: 60px; /* Distância exata entre o texto e o cartão */
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255,0,0,0.15), transparent 40%),
+    radial-gradient(circle at bottom, rgba(255,0,0,0.08), transparent 35%),
+    linear-gradient(180deg, #070707 0%, #120000 100%);
+}
+
+/* O "fundo" do cartão agora é um container normal no fluxo */
+.home-card-bg {
+  position: relative; /* Mudado de absolute para relative */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 1; /* Aumentado para o cartão brilhar mais */
+  pointer-events: auto; /* Permite interagir se necessário */
+}
+
+/* Garante que o conteúdo do texto não flutue */
+#home .content {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .home-wrapper {
@@ -188,7 +250,9 @@ p {
   text-align: center;
 }
 
-/* Cards e componentes */
+/* ============================================================
+   CARDS DE SERVIÇOS
+   ============================================================ */
 .services {
   display: flex;
   flex-wrap: wrap;
@@ -199,28 +263,34 @@ p {
 }
 
 .service-card {
-  background: #252525cc;
-  backdrop-filter: blur(4px);
+  background: #330000cc;
+  background: rgba(26,0,0,0.9);
   padding: 2rem;
   flex: 1 1 250px;
   border-radius: 16px;
-  transition: transform 0.3s, background 0.3s;
-  border: 1px solid #000000;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  background: #2e2e2ecc;
+  background: #440000cc;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 0 20px rgba(255, 0, 0, 0.15);
 }
 
 .service-card i {
   margin: 0 auto 1rem;
-  color: #fff;
+  color: #ff0000;
   display: block;
   width: 40px;
   height: 40px;
+  filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.4));
 }
 
+/* ============================================================
+   SEÇÃO SOBRE
+   ============================================================ */
 .about-container {
   display: flex;
   align-items: center;
@@ -236,8 +306,8 @@ p {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: 3px solid #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.35), 0 0 20px rgba(255, 0, 0, 0.2), 0 5px 15px rgba(255, 0, 0, 0.25);
 }
 
 .profile-image img {
@@ -250,12 +320,15 @@ p {
   flex: 2;
   min-width: 260px;
   text-align: left;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(26, 0, 0, 0.6);
   padding: 1.5rem;
   border-radius: 5px;
-  backdrop-filter: blur(10px);
+  background: rgba(26,0,0,0.9);
 }
 
+/* ============================================================
+   LINKS DE REDES SOCIAIS
+   ============================================================ */
 .social-links {
   display: flex;
   justify-content: right;
@@ -270,36 +343,43 @@ p {
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: #1e1e1e;
+  background: #2a0000;
   border-radius: 50%;
   transition: all 0.3s;
-  border: 1px solid #444;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
 }
 
 .social-links a:hover {
   transform: translateY(-5px);
-  background: #333;
-  border-color: #fff;
+  background: #440000;
+  border-color: #ff4444;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.35), 0 0 20px rgba(255, 0, 0, 0.2);
 }
 
 .social-links i {
   width: 24px;
   height: 24px;
-  color: #fff;
+  color: #ff0000;
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.35));
 }
 
+/* ============================================================
+   ESTATÍSTICAS
+   ============================================================ */
 .stats {
   display: flex;
   gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
-  background: #0a0a0acc;
-  backdrop-filter: blur(4px);
+  background: #1a0000cc;
+  background: rgba(26,0,0,0.9);
   padding: 1.8rem;
   border-radius: 15px;
   width: 100%;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.2), inset 0 0 8px rgba(255, 0, 0, 0.05);
 }
 
 .stat-item {
@@ -310,32 +390,41 @@ p {
 .stat-number {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #fff;
+  color: #ff0000;
   display: block;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
+/* ============================================================
+   BLOCOS DE CONTEÚDO EXTRA
+   ============================================================ */
 .about-extra {
   width: 100%;
   max-width: 90%;
   margin: 3rem auto 0;
-  background: #0a0a0acc;
+  background: #1a0000cc;
   padding: 1.8rem;
   border-radius: 10px;
-  backdrop-filter: blur(8px);
-  border: 1px solid #ffffff;
+  background: rgba(26,0,0,0.9);
+  border: 1px solid #ff0000;
   text-align: left;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.15), inset 0 0 8px rgba(255, 0, 0, 0.03);
 }
 
+/* ============================================================
+   SEÇÃO DE HABILIDADES
+   ============================================================ */
 .skills {
   width: 100%;
   max-width: 90%;
   margin: 3rem auto 0;
-  background: #0a0a0acc;
+  background: #1a0000cc;
   padding: 1.8rem;
   border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid #ffffff;
+  background: rgba(26,0,0,0.9);
+  border: 1px solid #ff0000;
   text-align: center;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.15), inset 0 0 8px rgba(255, 0, 0, 0.03);
 }
 
 .skills-grid {
@@ -349,14 +438,17 @@ p {
 }
 
 .skill-bar {
-  background: #fff;
+  background: #ff0000;
   width: 100%;
-  height: 4px;
+  height: 2px;
   border-radius: 25px;
   overflow: hidden;
   margin: 0 auto;
 }
 
+/* ============================================================
+   TIMELINE DE EXPERIÊNCIA
+   ============================================================ */
 .experience {
   margin: 3rem 0;
   width: 100%;
@@ -375,7 +467,8 @@ p {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #3a3a3a;
+  background: #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.35), 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 .timeline-item {
@@ -387,23 +480,28 @@ p {
 .timeline-dot {
   width: 16px;
   height: 16px;
-  background: #fff;
+  background: #ff0000;
   border-radius: 50%;
   position: absolute;
   left: 13px;
   top: 8px;
   z-index: 1;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.6), 0 0 10px rgba(255, 0, 0, 0.35), 0 0 15px rgba(255, 0, 0, 0.2);
 }
 
 .timeline-content {
   margin-left: 48px;
-  background: #0a0a0acc;
+  background: #1a0000cc;
   padding: 1.2rem;
   border-radius: 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff0000;
   width: 100%;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
 }
 
+/* ============================================================
+   GRID DE PORTFÓLIO
+   ============================================================ */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -414,21 +512,21 @@ p {
 
 .project {
   cursor: not-allowed;
-  background: #1e1e1e;
+  background: #2a0000;
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid #2c2c2c;
+  border: 1px solid #ff0000;
 }
 
 .project:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.35), 0 0 24px rgba(255, 0, 0, 0.2), 0 8px 16px rgba(255, 0, 0, 0.25);
 }
 
 .project-image {
   height: 280px;
-  background: #111;
+  background: #1a0000;
   position: relative;
   cursor: grab;
 }
@@ -438,6 +536,9 @@ p {
   text-align: center;
 }
 
+/* ============================================================
+   FORMULÁRIO DE CONTATO
+   ============================================================ */
 .contact form {
   display: flex;
   flex-direction: column;
@@ -451,41 +552,97 @@ p {
 .contact textarea {
   padding: 1.2rem;
   border-radius: 12px;
-  border: 1px solid #444;
-  background: #252525;
+  border: 1px solid #ff0000;
+  background: #2a0000;
   color: #fff;
   font-size: 1rem;
   outline: none;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #ff4444;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2), 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* ============================================================
+   BOTÃO DE ENVIO COM EFEITO SHINE
+   ============================================================ */
 .contact .btn {
-  animation: pulse 2s infinite;
-  transition: all 0.3s;
+  background: #cc0000;
+  color: #fff;
+  padding: 0.75rem 1.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes pulse {
+.contact .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 20s infinite;
+}
+
+@keyframes shine {
   0% {
-    box-shadow: 0 0 0 0 rgba(114, 47, 55, 0.7);
+    left: -100%;
   }
-  70% {
-    box-shadow: 0 0 0 10px rgba(114, 47, 55, 0);
+  20% {
+    left: 150%;
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(114, 47, 55, 0);
+    left: 150%;
   }
 }
 
 .contact .btn:hover {
-  animation: none;
+  background: #ff0000;
   transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2), 0 0 30px rgba(255, 0, 0, 0.1);
 }
 
+.contact .btn:hover::before {
+  animation: shine-hover 0.6s forwards;
+}
+
+@keyframes shine-hover {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* ============================================================
+   BOTÃO "VOLTAR AO TOPO"
+   ============================================================ */
 #back-to-top {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #2c2c2c;
+  background: #cc0000;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -500,6 +657,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.35), 0 0 15px rgba(255, 0, 0, 0.2);
 }
 
 #back-to-top.visible {
@@ -507,6 +665,14 @@ p {
   pointer-events: auto;
 }
 
+#back-to-top:hover {
+  background: #ff0000;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5), 0 0 24px rgba(255, 0, 0, 0.3), 0 0 36px rgba(255, 0, 0, 0.15);
+}
+
+/* ============================================================
+   ANIMAÇÃO DE REVELAÇÃO AO ROLAR (SCROLL REVEAL)
+   ============================================================ */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
@@ -519,6 +685,9 @@ p {
   transform: translateY(0) scale(1);
 }
 
+/* ============================================================
+   SEÇÃO DE INSIGHT (Fundações)
+   ============================================================ */
 .insight-section {
   display: flex;
   align-items: center;
@@ -542,13 +711,16 @@ p {
   width: 100%;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.3), 0 0 24px rgba(255, 0, 0, 0.15), 0 6px 15px rgba(255, 0, 0, 0.2);
 }
 
+/* ============================================================
+   LISTA DE PROJETOS COM IMAGENS
+   ============================================================ */
 .projects-list h2 {
   width: 100%;
   margin-top: 3rem;
-  text-shadow: 0px 2px 4px black;
+  text-shadow: 0px 2px 4px black, 0 0 5px rgba(255, 0, 0, 0.15);
 }
 
 .project-images {
@@ -564,19 +736,25 @@ p {
   border-radius: 10px;
   transition: 0.3s;
   cursor: pointer;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
 }
 
 .project-images img:hover {
   transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.35), 0 0 24px rgba(255, 0, 0, 0.2);
 }
 
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(26, 0, 0, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -595,6 +773,8 @@ p {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.35), 0 0 30px rgba(255, 0, 0, 0.2);
 }
 
 .close {
@@ -602,232 +782,438 @@ p {
   top: 20px;
   right: 30px;
   font-size: 2rem;
-  color: #fff;
+  color: #ff0000;
   cursor: pointer;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
 }
 
+/* ============================================================
+   BLOCOS DE SERVIÇO
+   ============================================================ */
 .service-block {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(26, 0, 0, 0.5);
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 1.5rem;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
 }
 
+/* ============================================================
+   TÍTULO COM EFEITO DE DIGITAÇÃO
+   ============================================================ */
 #typing-title {
   display: inline-block;
   font-size: 1.25rem;
   letter-spacing: 1px;
-  color: #fff;
-  border-right: 2px solid #fff;
+  color: #ff0000;
+  border-right: 2px solid #ff0000;
   padding-right: 2px;
   line-height: normal;
   animation: blink-caret 0.75s step-end infinite;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 @keyframes blink-caret {
   0%, 100% {
     border-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
   }
   50% {
-    border-color: #fff;
+    border-color: #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 0, 0, 0.2);
   }
 }
 
-/* Mobile adjustments */
+.floating-qr {
+  position: absolute;
+
+  right: 5%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  z-index: 5;
+}
+
+.floating-qr img {
+  width: 150px;
+  height: 150px;
+
+  padding: 12px;
+
+  background: rgba(255,255,255,0.96);
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(255,0,0,0.4);
+
+  box-shadow:
+    0 0 20px rgba(255,0,0,0.18),
+    0 0 50px rgba(255,0,0,0.08);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.floating-qr img:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 25px rgba(255,0,0,0.3),
+    0 0 60px rgba(255,0,0,0.15);
+}
+
+.floating-qr span {
+  color: #bdbdbd;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.qr-glow {
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,0,0,0.14) 0%,
+      transparent 70%
+    );
+
+  z-index: -1;
+
+  filter: blur(30px);
+
+  animation: qrPulse 4s ease-in-out infinite;
+}
+
+@keyframes qrPulse {
+  0%,100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   CONFIGURAÇÃO DA SEÇÃO (TEXTO ACIMA, CARD ABAIXO)
+   ============================================================ */
+#home {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Empilha verticalmente */
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 50px; /* Espaço entre o texto e o cartão */
+  background:
+    radial-gradient(circle at top, rgba(255,0,0,0.15), transparent 40%),
+    radial-gradient(circle at bottom, rgba(255,0,0,0.08), transparent 35%),
+    linear-gradient(180deg, #070707 0%, #120000 100%);
+}
+
+/* Grid de fundo e Partículas (Mantidos) */
+#home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+  opacity: 0.4;
+  animation: floatParticle 8s linear infinite;
+}
+
+@keyframes floatParticle {
+  from { transform: translateY(0px); opacity: 0; }
+  20% { opacity: 0.5; }
+  to { transform: translateY(-500px); opacity: 0; }
+}
+
+/* ============================================================
+   CARD 3D - COM BRILHO NEON E AJUSTE DE IMAGEM
+   ============================================================ */
+.card-3d-wrapper {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  z-index: 2;
+}
+
+.card-3d-scene {
+  width: 100%;
+  max-width: 530px;
+  aspect-ratio: 1.58 / 1; /* Proporção áurea de cartões */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cardSpin3D 12s linear infinite;
+}
+
+@keyframes cardSpin3D {
+  0% { transform: rotateX(10deg) rotateY(-30deg); }
+  100% { transform: rotateX(10deg) rotateY(330deg); }
+}
+
+.card-3d-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: #000;
+  border: 2px solid rgba(255, 30, 30, 0.7); /* Borda Neon */
+  
+  /* Glow Neon Intenso */
+  box-shadow: 
+    0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 50px rgba(255, 0, 0, 0.2);
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-3d-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantém o logo ADA perfeito */
+}
+
+.card-3d-back {
+  transform: rotateY(180deg);
+}
+
+/* Reflexo (Shine) */
+.card-3d-reflection {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card-3d-reflection::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -60%;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.05) 35%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.05) 65%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: cardShineClean 6s ease-in-out infinite;
+}
+
+@keyframes cardShineClean {
+  0% { left: -60%; opacity: 0; }
+  10%, 40% { opacity: 1; }
+  50%, 100% { left: 130%; opacity: 0; }
+}
+
+/* ============================================================
+   RESPONSIVIDADE AJUSTADA
+   ============================================================ */
+/* ============================================================
+   RESPONSIVIDADE - TABLETS E CELULARES (Fix 768px)
+   ============================================================ */
 @media (max-width: 768px) {
-  p, span, li, .timeline-content p {
-    font-size: 1.1rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  header {
-    flex-direction: column;
-    padding: 0.8rem 1rem;
-    gap: 8px;
-  }
-  nav a {
-    font-size: 1.1rem;
-  }
-  .section {
-    padding: 5rem 1.2rem 2rem;
-  }
-  .about-text {
-    text-align: center;
-  }
-  .contact form {
-    width: 100%;
-  }
-  .contact .btn {
-    min-width: unset;
-    width: 100%;
-  }
-  .info-footer {
+  /* Ajuste da Seção Home para garantir o empilhamento */
+  #home {
+    padding: 60px 20px;
+    gap: 35px; /* Espaço entre texto e card no mobile */
+    min-height: auto; /* Permite que a seção cresça conforme o conteúdo */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 18px;
-  }
-  header {
-    padding: 0.6rem 0.8rem;
-    flex-direction: column;
-    gap: 6px;
-  }
-  header h1 {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  nav {
-    gap: 0.8rem;
     justify-content: center;
-    flex-wrap: wrap;
   }
-  nav a {
-    font-size: 0.9rem;
-    padding: 6px 8px;
-    white-space: nowrap;
+
+  /* Reset do conteúdo para não flutuar */
+  #home .content, 
+  .home-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
   }
-  .section {
-    padding: 4rem 0.8rem 2rem;
+
+  /* Ajuste do Card para não esticar e não sumir */
+  .home-card-bg {
+    position: relative; /* Garante que ele fique abaixo do texto no fluxo */
+    inset: auto;
+    width: 100%;
+    max-width: 450px; /* Limita largura em tablets */
+    opacity: 1;
+    transform: none; /* Remove o translateY(320px) antigo */
+    margin: 0 auto;
   }
+
+  .card-3d-wrapper {
+    max-width: 100%;
+    transform: none;
+    perspective: 1200px; /* Perspectiva mais suave para telas menores */
+  }
+
+  .card-3d-scene {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.58 / 1; /* Mantém o formato de cartão de visitas */
+    max-width: 100%;
+  }
+
+  /* Brilho neon ajustado para telas menores */
+  .card-3d-face {
+    border-radius: 15px;
+    box-shadow: 
+      0 0 15px rgba(255, 0, 0, 0.4),
+      0 0 30px rgba(255, 0, 0, 0.2);
+  }
+
+  /* Ajustes gerais de texto para leitura no mobile */
   h2 {
     font-size: 1.8rem;
     line-height: 1.2;
   }
-  #home .content h2 {
-    font-size: 1.6rem;
-  }
-  #home .content p {
+
+  p {
     font-size: 1rem;
   }
-  .about-container {
-    gap: 1rem;
-  }
-  .profile-image {
-    flex-basis: 160px;
-  }
-  .about-text {
-    padding: 1rem;
-    text-align: center;
-  }
-  .social-links {
-    justify-content: center;
-    gap: 1.2rem;
-  }
-  .social-links a {
-    width: 44px;
-    height: 44px;
-  }
-  .stats {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.2rem;
-  }
-  .stat-number {
-    font-size: 2rem;
-  }
-  .skills, .about-extra, .experience {
-    max-width: 100%;
-    padding: 1.2rem;
-    margin: 2rem auto 0;
-  }
-  .skill-item span {
-    font-size: 0.9rem;
-  }
-  .timeline::before {
-    left: 16px;
-  }
-  .timeline-dot {
-    left: 9px;
-    width: 14px;
-    height: 14px;
-  }
-  .timeline-content {
-    margin-left: 40px;
-    padding: 0.8rem;
-  }
-  .timeline-content h3 {
-    font-size: 1.2rem;
-  }
-  .services {
-    gap: 1rem;
-  }
-  .service-card {
-    padding: 1.2rem;
-    flex-basis: 100%;
-  }
-  .service-card i {
-    width: 32px;
-    height: 32px;
-  }
-  .insight-section {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .insight-text ul li {
-    font-size: 0.9rem;
-  }
-  .insight-text div {
-    padding: 1rem;
-  }
-  .service-block {
-    padding: 1rem;
-  }
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-  .project-image {
-    height: 200px;
-  }
-  .project-images {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  .project-images img {
-    height: 180px;
-  }
-  .contact form {
-    width: 100%;
-    gap: 1rem;
-  }
-  .contact input, .contact textarea {
-    padding: 1rem;
-    font-size: 1rem;
-  }
-  .contact .btn {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-  }
-  .info-footer {
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-  }
-  #back-to-top {
-    width: 44px;
-    height: 44px;
-    bottom: 1rem;
-    right: 1rem;
-    font-size: 1.4rem;
-  }
-  #typing-title {
-    font-size: 1rem;
-    white-space: normal;
-    word-break: break-word;
-    max-width: 90vw;
-  }
-  .section-video {
+
+  /* Esconde elementos desnecessários no mobile se houver */
+  .floating-qr {
     display: none;
   }
-  .section {
-    background: #1c1c1c;
+}
+
+/* ============================================================
+   RESPONSIVIDADE - CELULARES
+   ============================================================ */
+/* ============================================================
+   RESPONSIVIDADE - CARTÃO MOBILE FIX
+   ============================================================ */
+@media (max-width: 480px) {
+
+  #home {
+    padding: 40px 15px;
+    gap: 25px;
+  }
+
+  /* QR Code mobile fix */
+  .floating-qr {
+    display: none;
+  }
+
+  /* glow menor no mobile */
+  .qr-glow {
+    width: 140px;
+    height: 140px;
+    filter: blur(20px);
+    opacity: 0.6;
+  }
+  
+  #cartao {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .card-3d-wrapper {
+    width: 100%;
+    max-width: 90%;
+    margin-bottom: 50px;
+    padding: 0;
+    perspective: 1000px;
+    overflow: hidden;
+    transform: none;
+  }
+
+  .card-3d-scene {
+    width: 100%;
+    height: 200px; /* Menor no celular */
+    aspect-ratio: 1.58 / 1;
+    max-width: 100%;
+  }
+
+  .card-3d {
+    width: 100%;
+    height: 100%;
+    animation: cardSpin3DMobile 12s linear infinite;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d-face {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .card-3d-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes cardSpin3DMobile {
+    0% {
+      transform: rotateX(2deg) rotateY(-18deg);
+    }
+
+    100% {
+      transform: rotateX(2deg) rotateY(342deg);
+    }
+  }
+
+  /* reduz glow gigante no celular */
+  .card-3d-wrapper::before {
+    width: 300px;
+    height: 300px;
+    filter: blur(40px);
   }
 }
