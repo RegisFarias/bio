@@ -178,7 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     DOM.linksMenu.forEach(link => {
-      link.classList.toggle('active-link', link.getAttribute('href') === `#${secaoAtual}`);
+      const href = link.getAttribute('href');
+      
+      // Se estivermos na seção home ou o scroll estiver no topo (scrollY < 100)
+      if (secaoAtual === 'home' || (scrollY < 100 && href === '#home')) {
+        link.classList.add('active-link');
+      } else {
+        // Comportamento normal para as outras seções
+        link.classList.toggle('active-link', href === `#${secaoAtual}`);
+      }
     });
   }
 
