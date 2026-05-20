@@ -391,9 +391,16 @@ document.addEventListener('DOMContentLoaded', () => {
     observadorStats.observe(DOM.secaoStats);
   }
   // ============================================================
-  // 10. REDIRECIONA PARA HOME AO CARREGAR A PÁGINA
+  // 10. REDIRECIONA PARA HOME SEM EXIBIR NA URL
   // ============================================================
   if (window.location.hash === '' || window.location.hash === '#cartao') {
-    window.location.hash = '#home';
+    // Isso move o scroll para a seção home sem mudar o link na barra
+    const secaoHome = document.getElementById('home');
+    if (secaoHome) {
+      secaoHome.scrollIntoView();
+      
+      // Isso "limpa" a URL mas mantém o estado interno
+      history.replaceState(null, null, ' ');
+    }
   }
 });
