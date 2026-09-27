@@ -16,10 +16,42 @@
   <meta property="og:image:height" content="630">
 
   <title>ARTAGA - Projeto e construção</title>
-  <link rel="icon" href="./static/images/artaga.png" type="image/png">
-  <link rel="stylesheet" href="./static/stylev2.css">
+  <link rel="icon" href="static/images/artaga.png" type="image/png">
+  <link rel="stylesheet" href="static/stylev2.css">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- ============================================================
+       FILTRO DE LOGS (model-viewer, fontes, source maps)
+       ============================================================ -->
+  <script>
+    (function () {
+      const origLog  = console.log;
+      const origWarn = console.warn;
+      const origInfo = console.info;
+
+      const shouldMute = (args) => {
+        const first = String(args[0] ?? '');
+        return (
+          first.includes('[$updateSource]') ||
+          first.includes('IntersectionObserver fired') ||
+          first.includes('BAILING OUT EARLY') ||
+          first.includes('downloadable font') ||
+          first.includes('Source map error')
+        );
+      };
+
+      const wrap = (fn) => function (...args) {
+        if (shouldMute(args)) return;
+        return fn.apply(console, args);
+      };
+
+      console.log  = wrap(origLog);
+      console.warn = wrap(origWarn);
+      console.info = wrap(origInfo);
+    })();
+  </script>
+
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
@@ -32,6 +64,7 @@
       <a href="#about">Sobre</a>
       <a href="#services">Serviços</a>
       <a href="#portfolio">Projetos</a>
+      <a href="#reviews">Reviews</a>
       <a href="#contact">Contato</a>
     </nav>
   </header>
@@ -51,10 +84,10 @@
           <div class="card-3d-scene">
             <div class="card-3d">
               <div class="card-3d-face card-3d-front">
-                <img src="static/images/frente_cartao.jpeg">
+                <img src="static/images/frente_cartao.jpeg" alt="Cartão ARTAGA frente">
               </div>
               <div class="card-3d-face card-3d-back">
-                <img src="static/images/frente_cartao.jpeg">
+                <img src="static/images/frente_cartao.jpeg" alt="Cartão ARTAGA verso">
               </div>
               <div class="card-3d-reflection"></div>
             </div>
@@ -81,10 +114,10 @@
             <p>Tenho experiência em projetos de diferentes portes, desde residenciais até estruturas mais complexas, buscando sempre otimizar materiais, reduzir custos e garantir desempenho estrutural.</p>
             <p>Meu compromisso é entregar projetos confiáveis, que saem do papel e se tornam realidade com qualidade, segurança e eficiência.</p>
             <div class="social-links">
-              <a href="https://www.linkedin.com/in/regisfarias7/?originalSubdomain=br" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-              <a href="https://www.instagram.com/eng.regisfarias/" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-              <a href="https://t.me/RegisEspecialistaEstrutural" target="_blank" aria-label="Telegram"><i data-lucide="send"></i></a>
-              <a href="mailto:engenheiroregisfarias@protonmail.com?subject=Contato&body=Olá Régis, vi seu site e gostaria de falar sobre..." target="_blank" aria-label="Email"><i data-lucide="mail"></i></a>
+              <a href="https://www.linkedin.com/in/regisfarias7/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              <a href="https://www.instagram.com/eng.regisfarias/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+              <a href="https://t.me/RegisEspecialistaEstrutural" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i data-lucide="send"></i></a>
+              <a href="mailto:engenheiroregisfarias@protonmail.com?subject=Contato&body=Olá Régis, vi seu site e gostaria de falar sobre..." target="_blank" rel="noopener noreferrer" aria-label="Email"><i data-lucide="mail"></i></a>
             </div>
           </div>
         </div>
@@ -103,6 +136,26 @@
             <span class="stat-label">Foco em segurança e viabilidade</span>
           </div>
         </div>
+
+        <!-- ============================================================
+             SEÇÃO REVIEWS (carrossel horizontal)
+             ============================================================ -->
+        <section id="reviews" class="reviews-section">
+          <h2 class="reviews-title scroll-reveal">O que os clientes dizem</h2>
+          <div class="rv-carousel-wrap">
+            <div class="rv-viewport">
+              <div class="rv-track" id="rvTrack"></div>
+            </div>
+
+            <button class="rv-nav-btn rv-nav-prev" id="rvPrevBtn" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="rv-nav-btn rv-nav-next" id="rvNextBtn" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+        <!-- ======================= FIM REVIEWS ======================= -->
 
         <div class="about-extra scroll-reveal">
           <h2>Atuação Profissional</h2>
@@ -135,9 +188,6 @@
 
     <!-- SERVIÇOS -->
     <section id="services" class="section">
-      <!-- <video class="section-video" autoplay muted loop playsinline preload="auto">
-        <source src="static/videos/Setup.mp4" type="video/mp4">
-      </video> -->
       <div class="content">
         <div class="services-content">
           <div class="about-extra scroll-reveal">
@@ -173,12 +223,12 @@
             <div class="insight-image"><img src="static/images/fundacao.jpeg" alt="Exemplo de fundação estrutural"></div>
           </div>
 
-          <h2 class="scroll-reveal" style="margin-top: 3rem; text-shadow: 2px 2px 4px black;">A IMPORTÂNCIA DOS SERVIÇOS</h2>
+          <h2 class="scroll-reveal" style="margin-top: 3rem;">A IMPORTÂNCIA DOS SERVIÇOS</h2>
           <div class="service-block scroll-reveal"><h3>Desenhos Estruturais</h3><p>Os desenhos estruturais são documentos essenciais na engenharia civil, pois representam graficamente as características e especificações de uma estrutura. Eles garantem que todos os elementos do projeto sejam executados conforme planejado, reduzindo erros e otimizando recursos.</p></div>
           <div class="service-block scroll-reveal"><h3>Renderização 3D</h3><p>A renderização 3D permite visualizar o projeto antes da execução, trazendo mais clareza para clientes e profissionais. Isso facilita ajustes, melhora a comunicação e reduz retrabalho durante a obra.</p></div>
           <div class="service-block scroll-reveal"><h3>Projeto Estrutural</h3><p>O projeto estrutural é fundamental para garantir segurança, economia e eficiência na construção. Ele define elementos como fundações, vigas, pilares e lajes, assegurando o desempenho da estrutura ao longo do tempo.</p></div>
 
-          <h2 class="scroll-reveal" style="text-shadow: 2px 2px 4px black;">Serviços</h2>
+          <h2 class="scroll-reveal">Serviços</h2>
           <div class="services">
             <div class="service-card scroll-reveal"><i data-lucide="file-text"></i><h3>Laudo Técnico</h3><p>Emissão de laudos técnicos com análise detalhada e responsabilidade profissional.</p></div>
             <div class="service-card scroll-reveal"><i data-lucide="building-2"></i><h3>Projeto Estrutural</h3><p>Desenvolvimento completo de projetos seguros, econômicos e executáveis.</p></div>
@@ -194,12 +244,10 @@
       <div class="content">
         <h2 class="scroll-reveal">Projetos Civis</h2>
         <div class="portfolio-grid">
-          <!-- Projeto 1 - Em manutenção -->
           <div class="project scroll-reveal">
             <div class="project-image" style="display: flex; align-items: center; justify-content: center; background: #1a1a1a;">
-              <!-- Ícone de manutenção (Font Awesome) -->
-              <i class="fas fa-tools" style="font-size: 4rem; color: #ffc107; text-shadow: 0 2px 5px rgba(0,0,0,0.5);"></i>
-              <span style="position: absolute; bottom: 10px; background: rgba(0,0,0,0.7); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">Em manutenção</span>
+              <i class="fas fa-tools" style="font-size: 4rem; color: #c9922a;"></i>
+              <span style="position: absolute; bottom: 10px; background: rgba(0,0,0,0.75); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">Em manutenção</span>
             </div>
             <div class="project-description">
               <h3>Projeto Civil 1</h3>
@@ -207,7 +255,6 @@
             </div>
           </div>
 
-          <!-- Projeto 2 - Em manutenção -->
           <div class="project scroll-reveal">
             <div class="project-image">
               <model-viewer src="static/models/ESTRUTURA.glb" camera-controls shadow-intensity="1" orientation="0deg -90deg 0deg" exposure=".35" environment-image="neutral"></model-viewer>
@@ -218,11 +265,10 @@
             </div>
           </div>
 
-          <!-- Projeto 3 - Em manutenção -->
           <div class="project scroll-reveal">
             <div class="project-image" style="display: flex; align-items: center; justify-content: center; background: #1a1a1a;">
-              <i class="fas fa-drafting-compass" style="font-size: 4rem; color: #ffc107;"></i>
-              <span style="position: absolute; bottom: 10px; background: rgba(0,0,0,0.7); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">Em manutenção</span>
+              <i class="fas fa-drafting-compass" style="font-size: 4rem; color: #c9922a;"></i>
+              <span style="position: absolute; bottom: 10px; background: rgba(0,0,0,0.75); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">Em manutenção</span>
             </div>
             <div class="project-description">
               <h3>Projeto Civil 3</h3>
@@ -233,15 +279,15 @@
 
         <div class="projects-list" style="margin-top: 4rem;">
           <h2>PROJETO ESTRUTURAL</h2>
-          <div class="project-images"><img src="static/images/p1-1.webp"><img src="static/images/p1-2.webp"><img src="static/images/p1-3.webp"><img src="static/images/p1-4.webp"><img src="static/images/p1-5.webp"><img src="static/images/p1-6.webp"><img src="static/images/p1-7.webp"></div>
+          <div class="project-images"><img src="static/images/p1-1.webp" alt="Projeto estrutural 1"><img src="static/images/p1-2.webp" alt="Projeto estrutural 2"><img src="static/images/p1-3.webp" alt="Projeto estrutural 3"><img src="static/images/p1-4.webp" alt="Projeto estrutural 4"><img src="static/images/p1-5.webp" alt="Projeto estrutural 5"><img src="static/images/p1-6.webp" alt="Projeto estrutural 6"><img src="static/images/p1-7.webp" alt="Projeto estrutural 7"></div>
           <h2>PROJETO ESTRUTURAL</h2>
-          <div class="project-images"><img src="static/images/p2-1.webp"><img src="static/images/p2-2.webp"><img src="static/images/p2-3.webp"><img src="static/images/p2-4.webp"><img src="static/images/p2-5.webp"><img src="static/images/p2-6.webp"></div>
+          <div class="project-images"><img src="static/images/p2-1.webp" alt="Projeto estrutural 2-1"><img src="static/images/p2-2.webp" alt="Projeto estrutural 2-2"><img src="static/images/p2-3.webp" alt="Projeto estrutural 2-3"><img src="static/images/p2-4.webp" alt="Projeto estrutural 2-4"><img src="static/images/p2-5.webp" alt="Projeto estrutural 2-5"><img src="static/images/p2-6.webp" alt="Projeto estrutural 2-6"></div>
           <h2>PROJETO RESIDENCIAL UNIFAMILIAR: Nova Iguaçu Rio de Janeiro</h2>
-          <div class="project-images"><img src="static/images/p3-1.webp"><img src="static/images/p3-2.webp"><img src="static/images/p3-3.webp"><img src="static/images/p3-4.webp"></div>
+          <div class="project-images"><img src="static/images/p3-1.webp" alt="Residencial 3-1"><img src="static/images/p3-2.webp" alt="Residencial 3-2"><img src="static/images/p3-3.webp" alt="Residencial 3-3"><img src="static/images/p3-4.webp" alt="Residencial 3-4"></div>
           <h2>PROJETO RECENTE: Residência unifamiliar em Mangaratiba praia do saco</h2>
-          <div class="project-images"><img src="static/images/p4-1.webp"><img src="static/images/p4-2.webp"><img src="static/images/p4-3.webp"><img src="static/images/p4-4.webp"></div>
+          <div class="project-images"><img src="static/images/p4-1.webp" alt="Mangaratiba 4-1"><img src="static/images/p4-2.webp" alt="Mangaratiba 4-2"><img src="static/images/p4-3.webp" alt="Mangaratiba 4-3"><img src="static/images/p4-4.webp" alt="Mangaratiba 4-4"></div>
           <h2>PROJETO RESIDENCIAL UNIFAMILIAR: Município de Caxias</h2>
-          <div class="project-images"><img src="static/images/p5-1.png"><img src="static/images/p5-2.png"><img src="static/images/p5-5.png"><img src="static/images/p5-6.png"><img src="static/images/p5-7.png"><img src="static/images/p5-8.png"><img src="static/images/p5-3.png"><img src="static/images/p5-4.png"></div>
+          <div class="project-images"><img src="static/images/p5-1.png" alt="Caxias 5-1"><img src="static/images/p5-2.png" alt="Caxias 5-2"><img src="static/images/p5-5.png" alt="Caxias 5-5"><img src="static/images/p5-6.png" alt="Caxias 5-6"><img src="static/images/p5-7.png" alt="Caxias 5-7"><img src="static/images/p5-8.png" alt="Caxias 5-8"><img src="static/images/p5-3.png" alt="Caxias 5-3"><img src="static/images/p5-4.png" alt="Caxias 5-4"></div>
         </div>
       </div>
     </section>
@@ -274,7 +320,7 @@
 
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
-    <img class="lightbox-img" id="lightbox-img">
+    <img class="lightbox-img" id="lightbox-img" alt="">
   </div>
 
   <script src="static/script.js"></script>
