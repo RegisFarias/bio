@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. OBSERVADORES UNIFICADOS
   // ============================================================
   
-  // Observador para scroll reveal
   const observadorRevelar = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
       if (entrada.isIntersecting) {
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px 0px -30px 0px'
   });
 
-  // Observador para skill bars
   const observadorSkill = new IntersectionObserver((entradas, observador) => {
     entradas.forEach(entrada => {
       if (entrada.isIntersecting) {
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
 
-  // Aplica observadores
   DOM.elementosRevelar.forEach(el => observadorRevelar.observe(el));
   DOM.barrasSkill.forEach(barra => observadorSkill.observe(barra));
 
@@ -58,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================================
   
   if (DOM.lightbox && DOM.imagemLightbox && DOM.botaoFechar) {
-    // Usa event delegation nas imagens
     document.querySelector('.projects-list')?.addEventListener('click', (e) => {
       const img = e.target.closest('.project-images img');
       if (img) {
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target !== DOM.imagemLightbox) fecharLightbox();
     });
 
-    // Fechar com tecla ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && DOM.lightbox.classList.contains('active')) {
         fecharLightbox();
@@ -93,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dadosForm = new FormData(DOM.formularioContato);
       const btnSubmit = DOM.formularioContato.querySelector('button[type="submit"]');
       
-      // Feedback visual imediato
       if (btnSubmit) {
         btnSubmit.disabled = true;
         btnSubmit.textContent = 'Enviando...';
@@ -130,17 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
         const percentual = alturaTotal > 0 ? (scrollY / alturaTotal) * 100 : 0;
 
-        // Barra de progresso
         if (DOM.barraProgresso) {
           DOM.barraProgresso.style.width = percentual + '%';
         }
 
-        // Botão voltar ao topo
         if (DOM.botaoVoltar) {
           DOM.botaoVoltar.classList.toggle('visible', scrollY > 300);
         }
 
-        // Link ativo do menu
         definirLinkAtivo(scrollY);
         
         ticking = false;
@@ -152,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', atualizarScroll, { passive: true });
   atualizarScroll();
 
-  // Botão voltar ao topo
   if (DOM.botaoVoltar) {
     DOM.botaoVoltar.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -173,24 +163,21 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (posicaoScroll >= topo && posicaoScroll < base) {
         secaoAtual = section.getAttribute('id');
-        break; // Sai do loop quando encontra a seção
+        break;
       }
     }
 
     DOM.linksMenu.forEach(link => {
       const href = link.getAttribute('href');
       
-      // Se estivermos na seção home ou o scroll estiver no topo (scrollY < 100)
       if (secaoAtual === 'home' || (scrollY < 100 && href === '#home')) {
         link.classList.add('active-link');
       } else {
-        // Comportamento normal para as outras seções
         link.classList.toggle('active-link', href === `#${secaoAtual}`);
       }
     });
   }
 
-  // Navegação suave com event delegation
   document.querySelector('nav')?.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     if (link && link.getAttribute('href')?.startsWith('#')) {
@@ -264,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const palavraAtual = this.palavras[this.indicePalavra];
 
-      // Digitando
       if (!this.apagando && !this.aguardando) {
         if (this.indiceChar <= palavraAtual.length) {
           this.elemento.textContent = palavraAtual.substring(0, this.indiceChar);
@@ -292,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }, tempoEspera);
         }
       } 
-      // Apagando
       else if (this.apagando && !this.aguardando) {
         if (this.indiceChar > 0) {
           this.elemento.textContent = palavraAtual.substring(0, this.indiceChar - 1);
@@ -318,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Inicia efeito de digitação
   if (DOM.tituloDigitacao) {
     const palavras = [
       'Régis Farias',
@@ -385,7 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Observador para animação dos números
   if (DOM.secaoStats) {
     const observadorStats = new IntersectionObserver((entradas) => {
       entradas.forEach(entrada => {
@@ -418,144 +401,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('rvTrack');
     if (!track) return;
 
-    /* -------- 11.1) DADOS DAS AVALIAÇÕES -------- */
     const IMG_PATH = 'static/Fotos_Perfis/';
 
     const reviews = [
-      {
-        img: 'Luana Melo.png',
-        name: 'Luana Melo',
-        count: '2 avaliações',
-        stars: 5,
-        text: 'Trabalho de excelência, super indico.',
-        reply: {
-          name: 'Eng. Estrutural Régis Farias (proprietário)',
-          text: 'Obrigado Luana!'
-        }
-      },
-      {
-        img: 'Rafael hulk (Hulk).png',
-        name: 'Rafael hulk (Hulk)',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'Excelente profissional 👏'
-      },
-      {
-        img: 'Thiago Ferreira.png',
-        name: 'Thiago Ferreira',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'Excelente profissional, sempre fazendo um ótimo trabalho.'
-      },
-      {
-        img: 'Pietro Roberto Oficial - BJJ.png',
-        name: 'Pietro Roberto Oficial - BJJ',
-        count: '2 avaliações',
-        stars: 5,
-        text: 'Excelente trabalho e Excelente profissional, eu Indico'
-      },
-      {
-        img: 'Esther Pereira.png',
-        name: 'Esther Pereira',
-        count: '4 avaliações',
-        stars: 5,
-        text: 'Excelente profissional, Super indico...'
-      },
-      {
-        img: 'bruno sanches.png',
-        name: 'bruno sanches',
-        count: '6 avaliações',
-        stars: 5,
-        text: 'Excelente profissional! Altamente capacitado!',
-        reaction: '❤️ 1'
-      },
-      {
-        img: 'jordan michael.png',
-        name: 'jordan michael',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'Ótimo atendimento e qualidade de serviço',
-        reaction: '🙏 1'
-      },
-      {
-        img: 'Vinicius Lima.png',
-        name: 'Vinicius Lima',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'Muito bom, eu indico',
-        reaction: '❤️ 1'
-      },
-      {
-        img: 'Victor Hugo.png',
-        name: 'Victor Hugo',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'Excelente profissional',
-        reaction: '❤️ 1'
-      },
-      {
-        img: 'Junior Flôr.png',
-        name: 'Junior Flôr',
-        count: '1 avaliação',
-        stars: 5,
-        text: 'melhor que conheço! nota 💯'
-      },
-      {
-        img: 'BRUNO TEIXEIRA FARIAS.png',
-        name: 'BRUNO TEIXEIRA FARIAS',
-        count: '',
-        stars: 5,
-        text: ''
-      },
-      {
-        img: 'Dido Zulu.png',
-        name: 'Dido Zulu',
-        count: '',
-        stars: 5,
-        text: ''
-      },
-      {
-        img: 'Alice Cavalcante.png',
-        name: 'Alice Cavalcante',
-        count: '',
-        stars: 5,
-        text: ''
-      },
-      {
-        img: 'Caio Kyorogg.png',
-        name: 'Caio Kyorogg',
-        count: '',
-        stars: 5,
-        text: '',
-        reply: {
-          name: 'Eng. Estrutural Régis Farias (proprietário)',
-          text: 'grato pela confiança'
-        }
-      },
-      {
-        img: 'Tiago Souza.png',
-        name: 'Tiago Souza',
-        count: '1 avaliação',
-        stars: 5,
-        text: ''
-      },
-      {
-        img: 'Jonas Ramos.png',
-        name: 'Jonas Ramos',
-        count: '',
-        stars: 5,
-        text: ''
-      },
-      {
-        img: 'Jefferson Miranda.png',
-        name: 'Jefferson Miranda',
-        count: '2 avaliações',
-        stars: 5,
-        text: ''
-      }
+      { img: 'Luana Melo.png', name: 'Luana Melo', count: '2 avaliações', stars: 5, text: 'Trabalho de excelência, super indico.', reply: { name: 'Eng. Estrutural Régis Farias (proprietário)', text: 'Obrigado Luana!' } },
+      { img: 'Rafael hulk (Hulk).png', name: 'Rafael hulk (Hulk)', count: '1 avaliação', stars: 5, text: 'Excelente profissional 👏' },
+      { img: 'Thiago Ferreira.png', name: 'Thiago Ferreira', count: '1 avaliação', stars: 5, text: 'Excelente profissional, sempre fazendo um ótimo trabalho.' },
+      { img: 'Pietro Roberto Oficial - BJJ.png', name: 'Pietro Roberto Oficial - BJJ', count: '2 avaliações', stars: 5, text: 'Excelente trabalho e Excelente profissional, eu Indico' },
+      { img: 'Esther Pereira.png', name: 'Esther Pereira', count: '4 avaliações', stars: 5, text: 'Excelente profissional, Super indico...' },
+      { img: 'bruno sanches.png', name: 'bruno sanches', count: '6 avaliações', stars: 5, text: 'Excelente profissional! Altamente capacitado!', reaction: '❤️ 1' },
+      { img: 'jordan michael.png', name: 'jordan michael', count: '1 avaliação', stars: 5, text: 'Ótimo atendimento e qualidade de serviço', reaction: '🙏 1' },
+      { img: 'Vinicius Lima.png', name: 'Vinicius Lima', count: '1 avaliação', stars: 5, text: 'Muito bom, eu indico', reaction: '❤️ 1' },
+      { img: 'Victor Hugo.png', name: 'Victor Hugo', count: '1 avaliação', stars: 5, text: 'Excelente profissional', reaction: '❤️ 1' },
+      { img: 'Junior Flôr.png', name: 'Junior Flôr', count: '1 avaliação', stars: 5, text: 'melhor que conheço! nota 💯' },
+      { img: 'BRUNO TEIXEIRA FARIAS.png', name: 'BRUNO TEIXEIRA FARIAS', count: '', stars: 5, text: '' },
+      { img: 'Dido Zulu.png', name: 'Dido Zulu', count: '', stars: 5, text: '' },
+      { img: 'Alice Cavalcante.png', name: 'Alice Cavalcante', count: '', stars: 5, text: '' },
+      { img: 'Caio Kyorogg.png', name: 'Caio Kyorogg', count: '', stars: 5, text: '', reply: { name: 'Eng. Estrutural Régis Farias (proprietário)', text: 'grato pela confiança' } },
+      { img: 'Tiago Souza.png', name: 'Tiago Souza', count: '1 avaliação', stars: 5, text: '' },
+      { img: 'Jonas Ramos.png', name: 'Jonas Ramos', count: '', stars: 5, text: '' },
+      { img: 'Jefferson Miranda.png', name: 'Jefferson Miranda', count: '2 avaliações', stars: 5, text: '' }
     ];
 
-    /* -------- 11.2) TEMPLATES -------- */
     const STAR_PATH = 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z';
 
     function starsHTML(rating) {
@@ -584,34 +451,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
       <div class="rv-card">
           <div class="rv-user-header">
-              <img
-                  class="rv-avatar"
-                  src="${src}"
-                  alt="${r.name}"
-                  loading="lazy"
-                  onerror="this.onerror=null;this.src='https://placehold.co/80x80/222222/ffffff?text=${ini}'"
-              >
+              <img class="rv-avatar" src="${src}" alt="${r.name}" loading="lazy"
+                  onerror="this.onerror=null;this.src='https://placehold.co/80x80/222222/ffffff?text=${ini}'">
               <div class="rv-user-info">
                   <div class="rv-user-name">${r.name}</div>
                   ${r.count ? `<div class="rv-user-count">${r.count}</div>` : ''}
               </div>
           </div>
-
           <div class="rv-rating-row">
               <div class="rv-stars">${starsHTML(r.stars)}</div>
           </div>
-
           ${r.text ? `<div class="rv-text">${r.text}</div>` : '<div class="rv-text" style="flex-grow:1;"></div>'}
           ${r.reaction ? `<div class="rv-reaction">${r.reaction}</div>` : ''}
-
           ${r.reply ? `
           <div class="rv-reply">
-              <div class="rv-reply-header">
-                  <span class="rv-reply-name">${r.reply.name}</span>
-              </div>
+              <div class="rv-reply-header"><span class="rv-reply-name">${r.reply.name}</span></div>
               <div class="rv-reply-text">${r.reply.text}</div>
           </div>` : ''}
-
           <div class="rv-action-bar">
               <a class="rv-action-btn" href="${SHARE_URL}" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar">
                   ${SHARE_ICON}
@@ -620,7 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`;
     }
 
-    /* -------- 11.3) MONTAGEM DO CARROSSEL -------- */
     const html = reviews.map(cardHTML).join('');
     track.innerHTML = html + html;
 
@@ -629,12 +484,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!card) return;
       if (e.target.closest('.rv-action-btn')) return;
 
-      track.querySelectorAll('.rv-card.selected')
-           .forEach(c => c.classList.remove('selected'));
+      track.querySelectorAll('.rv-card.selected').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
     });
 
-    /* -------- 11.4) NAVEGAÇÃO MANUAL -------- */
     const prevBtn = document.getElementById('rvPrevBtn');
     const nextBtn = document.getElementById('rvNextBtn');
 
@@ -650,11 +503,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function nudge(direction) {
       track.classList.add('paused');
-
       const halfWidth = track.scrollWidth / 2;
       manualOffset += direction * step();
       manualOffset = ((manualOffset % halfWidth) + halfWidth) % halfWidth;
-
       track.style.animation = 'none';
       track.style.transform = `translateX(${-manualOffset}px)`;
     }
@@ -669,12 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200);
     }
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => { nudge(1); scheduleResume(); });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => { nudge(-1); scheduleResume(); });
-    }
+    if (prevBtn) prevBtn.addEventListener('click', () => { nudge(1); scheduleResume(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nudge(-1); scheduleResume(); });
 
     const wrap = document.querySelector('.rv-carousel-wrap');
     if (wrap) {
@@ -683,4 +530,80 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
+  // ============================================================
+  // 12. LUZ QUE SEGUE O CURSOR NA HOME (plano cartesiano)
+  // ============================================================
+  (function initLuzCursorHome() {
+    const home = document.getElementById('home');
+    if (!home) return;
+
+    // Só ativa em dispositivos com mouse (evita custo em touch puro)
+    const temMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!temMouse) return;
+
+    let rafId = null;
+    let pendingEvent = null;
+
+    function aplicarLuz() {
+      rafId = null;
+      if (!pendingEvent) return;
+
+      const rect = home.getBoundingClientRect();
+      const x = ((pendingEvent.clientX - rect.left) / rect.width) * 100;
+      const y = ((pendingEvent.clientY - rect.top) / rect.height) * 100;
+
+      home.style.setProperty('--mx', x + '%');
+      home.style.setProperty('--my', y + '%');
+    }
+
+    home.addEventListener('mousemove', (e) => {
+      pendingEvent = e;
+      if (rafId === null) {
+        rafId = requestAnimationFrame(aplicarLuz);
+      }
+    });
+
+    // Ao sair da home, a luz volta suavemente para o topo central
+    home.addEventListener('mouseleave', () => {
+      home.style.setProperty('--mx', '50%');
+      home.style.setProperty('--my', '15%');
+    });
+  })();
+
+  // ============================================================
+  // 13. TILT DO CARTÃO COM O CURSOR (Home)
+  //     Só rotateY — evita flip vertical da face de trás
+  // ============================================================
+  (function initCardTilt() {
+    const wrapper = document.querySelector('.card-3d-wrapper');
+    if (!wrapper) return;
+
+    const temMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!temMouse) return;
+
+    let rafId = null;
+    let ultimoEvento = null;
+
+    function aplicarTilt() {
+      rafId = null;
+      if (!ultimoEvento) return;
+
+      const rect = wrapper.getBoundingClientRect();
+      const x = (ultimoEvento.clientX - rect.left) / rect.width - 0.5;
+      const y = (ultimoEvento.clientY - rect.top) / rect.height - 0.5;
+      // Máx ±14° apenas no eixo Y (horizontal)
+      wrapper.style.transform = `rotate3d(${y}, ${x}, 0, ${Math.hypot(x, y) * 10}deg)`;
+    }
+
+    wrapper.addEventListener('mousemove', (e) => {
+      ultimoEvento = e;
+      if (rafId === null) {
+        rafId = requestAnimationFrame(aplicarTilt);
+      }
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      wrapper.style.transform = '';
+    });
+  })();
 });
