@@ -1579,6 +1579,96 @@ p {
 .rv-nav-next { right: 8px; }
 
 /* ============================================================
+   EMPRESAS PARCEIRAS
+   ============================================================ */
+.partners {
+  width: 100%;
+  max-width: 90%;
+  margin: 3rem auto 0;
+  background: rgba(8, 8, 8, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
+}
+
+.partners h2 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.partner-item {
+  display: inline-flex;         /* 👈 encolhe pro tamanho do conteúdo */
+  padding: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;               /* 👈 remove espaço fantasma de inline */
+  transition: transform 0.3s ease,
+              border-color 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.partner-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4),
+              0 0 22px rgba(180, 200, 255, 0.08);
+}
+
+.partner-item img {
+  display: block;
+  width: auto;                  /* 👈 tamanho natural da imagem */
+  height: auto;
+  max-width: 280px;             /* 👈 teto pra não ficar gigante */
+  max-height: 160px;
+  pointer-events: none;
+  border-radius: inherit;       /* 👈 acompanha o arredondamento do card */
+}
+
+/* Ajuste mobile */
+@media (max-width: 600px) {
+  .partners {
+    padding: 1.5rem 1rem;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .partner-item {
+    height: 80px;
+    padding: 0.75rem;
+  }
+}
+
+/* ============================================================
    RESPONSIVIDADE
    ============================================================ */
 @media (max-width: 768px) {
